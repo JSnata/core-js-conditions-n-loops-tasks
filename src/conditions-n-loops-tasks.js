@@ -167,7 +167,6 @@ function convertNumberToString(numberStr) {
         result += 'minus';
         break;
       default:
-        console.log('error');
     }
     if (i !== numberStr.length - 1) {
       result += ' ';
@@ -305,6 +304,26 @@ function getSpiralMatrix(/* size */) {
  *  ]                 ]
  */
 function rotateMatrix(/* matrix */) {
+  // const rotatedMatrix = matrix;
+  // const tempMatrix = [...matrix];
+  // for (let i = matrix.length - 1; i >= 0; i -= 1) {
+  //   rotatedMatrix[i] = [];
+  // }
+  // for (let row = 0; row < matrix.length; row += 1) {
+  //   for (let k = matrix.length - 1; k >= 0; k -= 1) {
+  //     rotatedMatrix[row][k] = tempMatrix[k][row];
+  //     let start = 0;
+  //     let end = matrix.length - 1;
+  //     while (start < end) {
+  //       const temp = rotatedMatrix[row][start];
+  //       rotatedMatrix[row][start] = rotatedMatrix[row][end];
+  //       rotatedMatrix[row][end] = temp;
+  //       start += 1;
+  //       end -= 1;
+  //     }
+  //   }
+  // }
+  // return rotatedMatrix;
   throw new Error('Not implemented');
 }
 
@@ -322,8 +341,19 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const newArr = arr;
+  for (let i = 0; i < newArr.length - 1; i += 1) {
+    for (let j = 0; j < newArr.length - 1 - i; j += 1) {
+      if (arr[j] > arr[j + 1]) {
+        const temp = arr[j];
+        newArr[j] = arr[j + 1];
+        newArr[j + 1] = temp;
+      }
+    }
+  }
+
+  return arr;
 }
 
 /**
