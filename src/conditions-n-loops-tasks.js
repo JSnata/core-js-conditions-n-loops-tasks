@@ -381,18 +381,20 @@ function shuffleChar(str, iterations) {
   let newStr = str;
 
   for (let i = 0; i < iterations; i += 1) {
-    let rightStr = '';
-    let leftStr = '';
+    let rightChars = '';
+    let leftChars = '';
 
-    for (let j = 0; j < str.length; j += 1) {
+    for (let j = 0; j < str.length; j += 2) {
       if (j % 2 === 0) {
-        rightStr += newStr[j];
+        rightChars += newStr[j];
+        leftChars += newStr[j + 1];
       } else {
-        leftStr += newStr[j];
+        leftChars += newStr[j];
+        rightChars += newStr[j + 1];
       }
     }
 
-    newStr = rightStr + leftStr;
+    newStr = rightChars + leftChars;
   }
 
   return newStr;
