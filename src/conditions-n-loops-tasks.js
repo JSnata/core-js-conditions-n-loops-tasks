@@ -192,8 +192,13 @@ function convertNumberToString(numberStr) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let reversedStr = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    reversedStr += str[i];
+  }
+
+  return str === reversedStr;
 }
 
 /**
@@ -324,26 +329,6 @@ function getSpiralMatrix(/* size */) {
  *  ]                 ]
  */
 function rotateMatrix(/* matrix */) {
-  // const rotatedMatrix = matrix;
-  // const tempMatrix = [...matrix];
-  // for (let i = matrix.length - 1; i >= 0; i -= 1) {
-  //   rotatedMatrix[i] = [];
-  // }
-  // for (let row = 0; row < matrix.length; row += 1) {
-  //   for (let k = matrix.length - 1; k >= 0; k -= 1) {
-  //     rotatedMatrix[row][k] = tempMatrix[k][row];
-  //     let start = 0;
-  //     let end = matrix.length - 1;
-  //     while (start < end) {
-  //       const temp = rotatedMatrix[row][start];
-  //       rotatedMatrix[row][start] = rotatedMatrix[row][end];
-  //       rotatedMatrix[row][end] = temp;
-  //       start += 1;
-  //       end -= 1;
-  //     }
-  //   }
-  // }
-  // return rotatedMatrix;
   throw new Error('Not implemented');
 }
 
