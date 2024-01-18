@@ -116,8 +116,51 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  const strNum = `${num}`;
+  let romanNumeral = '';
+  let units = '';
+  const numerals = {
+    4: 'IV',
+    5: 'V',
+    9: 'IX',
+  };
+
+  if (strNum.length > 1) {
+    let tensCounter = strNum[0];
+    while (tensCounter) {
+      romanNumeral += 'X';
+      tensCounter -= 1;
+    }
+    if (strNum[1] === '0') {
+      return romanNumeral;
+    }
+    [, units] = strNum;
+    units = Number(units);
+  }
+
+  if (strNum.length === 1) {
+    units = strNum;
+    units = Number(units);
+  }
+
+  if (numerals[units]) {
+    romanNumeral += numerals[units];
+  }
+  if (units < 4) {
+    while (units) {
+      romanNumeral += 'I';
+      units -= 1;
+    }
+  }
+  if (units > 5 && units < 9) {
+    romanNumeral += 'V';
+    while (units > 5) {
+      romanNumeral += 'I';
+      units -= 1;
+    }
+  }
+  return romanNumeral;
 }
 
 /**
